@@ -103,7 +103,7 @@ def escalona_PRIORD():
         while x1 <= 1:        
             a1 = df1.loc[p1_fila].at['processo'] 
             prc1 = df1.loc[p1_fila].at['processou'] 
-            print("****Executando Processo ", a1,' de prioridade 2 no quantum  ',x1)            
+            print("****Executando Processo ", a1,' de prioridade 1 no quantum  ',x1)            
             novaetapa1 = prc1 + 1
             df1.at[p1_fila, 'processou'] = novaetapa          
             
