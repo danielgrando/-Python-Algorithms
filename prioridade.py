@@ -2,12 +2,12 @@
 import pandas as pd
 
 processos_p4 = {
-    'processo': ['p1', 'p2', 'p3', 'p4','p25','p45']
+    'processo': ['p1', 'p2', 'p3', 'p4']
 }
 
 df4 = pd.DataFrame(data=processos_p4)
-df4.index = [1,2,3,4,5,6]
-df4['processou'] = [0,0,0,0,0,0]
+df4.index = [1,2,3,4]
+df4['processou'] = [0,0,0,0]
 
 
 processos_p2 = {
