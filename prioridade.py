@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 
 import pandas as pd
 
@@ -32,9 +27,6 @@ df1.index = [1,2]
 df1['processou'] = [0,0]
 
 
-# In[2]:
-
-
 def escalona_PRIORD():
     
     global df4
@@ -59,7 +51,6 @@ def escalona_PRIORD():
         
     ciclo = 1
     
-    #controle das filas para indicar qual processo está executando e em qual etapa está
     p4_fila = 1
     p4_etapa = 1
     
@@ -70,22 +61,19 @@ def escalona_PRIORD():
     p1_fila = 1
     p1_etapa = 1
     
-    #inicia ciclo de execução
+
     while ciclo <= 4:
         print('Ciclo: ',ciclo)
-        #processos com prioridade 4 terão 4 quantuns cada vez que passa na fila
         x4 = 1
         while x4 <= 4:     
             
-            
-            #identifico o processo atual e vejo quantos quantums falta para terminar
-            a = df4.loc[p4_fila].at['processo']   # carrega o processo a ser executado
-            prc = df4.loc[p4_fila].at['processou'] # reserva a quantidade de vezes que já foi executado
+            a = df4.loc[p4_fila].at['processo']  
+            prc = df4.loc[p4_fila].at['processou'] 
 
-            print("****Executando Processo ", a,' de prioridade 4 no quantum  ',x4) # executa o processo                                  
-            ##testa se já executou 3 vezes
+            print("****Executando Processo ", a,' de prioridade 4 no quantum  ',x4)                                
+            
             novaetapa = prc + 1
-            df4.at[p4_fila, 'processou'] = novaetapa   #atualiza a quantidade de vezes que foi executado      
+            df4.at[p4_fila, 'processou'] = novaetapa    
             
             if novaetapa >= 3:
                 p4_fila = p4_fila + 1
@@ -94,14 +82,14 @@ def escalona_PRIORD():
             x4 = x4 + 1
         print(df4)
 
-       #processos com prioridade 2 terão 2 quantuns cada vez que passa na fila
+     
         x2 = 1
         while x2 <= 2:        
             a2 = df2.loc[p2_fila].at['processo'] 
-            prc2 = df2.loc[p2_fila].at['processou'] # reserva a quantidade de vezes que já foi executado
-            print("****Executando Processo ", a2,' de prioridade 2 no quantum  ',x2) # executa o processo              
+            prc2 = df2.loc[p2_fila].at['processou'] 
+            print("****Executando Processo ", a2,' de prioridade 2 no quantum  ',x2)          
             novaetapa2 = prc2 + 1
-            df2.at[p2_fila, 'processou'] = novaetapa2   #atualiza a quantidade de vezes que foi executado     
+            df2.at[p2_fila, 'processou'] = novaetapa2    
             
              
             if novaetapa2 >= 3:
@@ -110,15 +98,14 @@ def escalona_PRIORD():
             x2 = x2+1 
         print(df2)
 
-
-        #processos com prioridade 1 terão 1 quantum cada vez que passa na fila
+        
         x1 = 1
         while x1 <= 1:        
             a1 = df1.loc[p1_fila].at['processo'] 
-            prc1 = df1.loc[p1_fila].at['processou'] # reserva a quantidade de vezes que já foi executado
-            print("****Executando Processo ", a1,' de prioridade 2 no quantum  ',x1) # executa o processo              
+            prc1 = df1.loc[p1_fila].at['processou'] 
+            print("****Executando Processo ", a1,' de prioridade 2 no quantum  ',x1)            
             novaetapa1 = prc1 + 1
-            df1.at[p1_fila, 'processou'] = novaetapa   #atualiza a quantidade de vezes que foi executado       
+            df1.at[p1_fila, 'processou'] = novaetapa          
             
             if novaetapa1 >= 3:                
                 p1_fila = p1_fila + 1
@@ -131,16 +118,4 @@ def escalona_PRIORD():
         print("****************************************************")
 
 
-# In[3]:
-
-
 escalona_PRIORD()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
